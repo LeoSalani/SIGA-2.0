@@ -2,6 +2,7 @@
 import { usePage } from '@inertiajs/react';
 import { PropsWithChildren, ReactNode, useState } from 'react';
 
+import BottomTab from '@/Components/BottomTab';
 import { Header } from '@/Components/Header';
 import MenuContent from '@/Components/MenuContent';
 
@@ -22,9 +23,11 @@ export function AuthenticatedLayout({
             <MenuContent />
           </aside>
 
-          <main className="flex-1 pt-4 pl-2">
+          <main className="flex-1 pt-4 pl-2 min-h-[90vh]">
             { children }
           </main>
+
+          <BottomTab />
         </div>
       </div>
     );
