@@ -36,7 +36,7 @@ export default function MenuContent(){
     <figure className="w-full">
       <img
         src={PROFILE_PIC_PLACEHOLDER}
-        alt="Roronoa Zoro"
+        alt="Aluno"
         className="size-40 rounded-full mx-auto"
       />
     </figure>
@@ -45,7 +45,7 @@ export default function MenuContent(){
 
     <hr className="w-full h-0.5 bg-neutral-700 mt-2" />
 
-    <nav className="hidden xl:flex flex-col gap-2 mt-4">
+    <nav className="hidden sm:flex flex-col gap-2 mt-4">
       {links.map((link, index) => (
         <Link
           key={index}
