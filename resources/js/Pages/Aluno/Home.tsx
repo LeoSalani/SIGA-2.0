@@ -3,7 +3,7 @@ import { AuthenticatedLayout } from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 import { IoAlert } from 'react-icons/io5';
 
-export default function Dashboard() {
+export default function Home() {
     return (
         <>
           <Head title="Dashboard" />

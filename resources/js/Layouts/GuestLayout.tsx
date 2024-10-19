@@ -8,7 +8,7 @@ export default function Guest({ children }: PropsWithChildren) {
         <div className="flex min-h-screen flex-col items-center bg-gray-100 pt-6 sm:justify-center sm:pt-0">
             <div className="flex flex-col items-center">
               <div className="flex gap-1.5">
-                  <ApplicationLogo />
+                  <ApplicationLogo w={189} h={85} />
 
                   <div className='w-px bg-black'/>
 

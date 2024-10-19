@@ -57,6 +57,12 @@ export default {
     				'900': '#3b3b3e',
     				'950': '#252527'
     			},
+          verde: "#A0C340",
+          blueberry: "#4C7EFF",
+          crayola: "#FFC24C",
+          violeta: "#8A29E6",
+          coral: "#FF4C4D",
+          rosa: "#FF4CA2",
     			background: 'hsl(var(--background))',
     			foreground: 'hsl(var(--foreground))',
     			card: {
