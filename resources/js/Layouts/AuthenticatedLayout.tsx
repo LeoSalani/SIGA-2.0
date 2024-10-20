@@ -5,6 +5,7 @@ import { PropsWithChildren, ReactNode, useState } from 'react';
 import BottomTab from '@/Components/BottomTab';
 import { Header } from '@/Components/Header';
 import MenuContent from '@/Components/MenuContent';
+import { Toaster } from '@/Components/ui/toaster';
 
 export function AuthenticatedLayout({
     children,
@@ -29,9 +30,8 @@ export function AuthenticatedLayout({
 
           <BottomTab />
         </div>
+
+        <Toaster />
       </div>
     );
 }
-
-// <p>Aluno: </p>
-//

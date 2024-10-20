@@ -6,12 +6,19 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    return Inertia::render('Auth/Login');
+  return Inertia::render('Auth/Login');
 });
+
+// ! TODAS ESSAS ROTAS DEVEM VOLTAR A ESTAR AUTENTICADAS APÓS O BACKEND ESTIVER PRONTO!
+// ADICIONAR ->middleware(['auth', 'verified'])
 
 Route::get(uri: '/aluno/home', action: function () {
   return Inertia::render('Aluno/Home');
-})->middleware(['auth', 'verified'])->name(name: "Home");
+})->name(name: "Home");
+
+Route::get(uri: '/aluno/notas', action: function () {
+  return Inertia::render('Aluno/Home');
+})->name(name: "Home");
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
