@@ -3,9 +3,16 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
+import { useToast } from '@/hooks/use-toast';
 import GuestLayout from '@/Layouts/GuestLayout';
 import { Head, Link, useForm } from '@inertiajs/react';
 import { FormEventHandler } from 'react';
+
+interface FormData {
+  login: string
+  senha: string
+  remember: boolean
+}
 
 export default function Login({
     status,
@@ -14,23 +21,32 @@ export default function Login({
     status?: string;
     canResetPassword: boolean;
 }) {
-    const { data, setData, post, processing, errors, reset } = useForm({
-        email: '',
-        password: '',
-        remember: false,
-    });
+
+  const { toast } = useToast()
+    const { data, setData, post, processing, errors, reset } = useForm<FormData>();
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
-        post(route('login'), {
-            onFinish: () => reset('password'),
-        });
+        /**
+         * TODO: Fazer login logo após
+         * post(route('login'), {
+            onFinish: () => reset('senha')
+           });
+         *
+         */
+
+        toast({
+          title: "Título",
+          description: "Descrição"
+        })
+
+
     };
 
     return (
         <GuestLayout>
-            <Head title="Log in" />
+            <Head title="Login" />
 
             {status && (
                 <div className="mb-4 text-sm font-medium text-green-600">
@@ -40,36 +56,36 @@ export default function Login({
 
             <form onSubmit={submit}>
                 <div>
-                    <InputLabel htmlFor="email" value="Email" />
+                    <InputLabel htmlFor="login" value="Login" />
 
                     <TextInput
-                        id="email"
-                        type="email"
-                        name="email"
-                        value={data.email}
+                        id="login"
+                        type="text"
+                        name="login"
+                        value={data.login}
                         className="mt-1 block w-full"
                         autoComplete="username"
                         isFocused={true}
-                        onChange={(e) => setData('email', e.target.value)}
+                        onChange={(e) => setData('login', e.target.value)}
                     />
 
-                    <InputError message={errors.email} className="mt-2" />
+                    <InputError message={errors.login} className="mt-2" />
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
+                    <InputLabel htmlFor="password" value="Senha" />
 
                     <TextInput
                         id="password"
                         type="password"
                         name="password"
-                        value={data.password}
+                        value={data.senha}
                         className="mt-1 block w-full"
                         autoComplete="current-password"
-                        onChange={(e) => setData('password', e.target.value)}
+                        onChange={(e) => setData('senha', e.target.value)}
                     />
 
-                    <InputError message={errors.password} className="mt-2" />
+                    <InputError message={errors.senha} className="mt-2" />
                 </div>
 
                 <div className="mt-4 block">
@@ -82,7 +98,7 @@ export default function Login({
                             }
                         />
                         <span className="ms-2 text-sm text-gray-600">
-                            Remember me
+                            Lembrar-me
                         </span>
                     </label>
                 </div>
@@ -91,14 +107,14 @@ export default function Login({
                     {canResetPassword && (
                         <Link
                             href={route('password.request')}
-                            className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                            className="rounded-md text-sm text-neutro-600 underline hover:text-neutro-950 focus:outline-none focus:ring-2 focus:font-medium focus:ring-neutro-950 focus:ring-offset-2"
                         >
-                            Forgot your password?
+                            Esqueceu sua senha?
                         </Link>
                     )}
 
                     <PrimaryButton className="ms-4" disabled={processing}>
-                        Log in
+                        Entrar
                     </PrimaryButton>
                 </div>
             </form>
