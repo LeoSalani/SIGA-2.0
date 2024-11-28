@@ -3,6 +3,7 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
+import { useToast } from '@/hooks/use-toast';
 import GuestLayout from '@/Layouts/GuestLayout';
 import { Head, Link, useForm } from '@inertiajs/react';
 import { FormEventHandler } from 'react';
@@ -20,22 +21,27 @@ export default function Login({
     status?: string;
     canResetPassword: boolean;
 }) {
+
+  const { toast } = useToast()
     const { data, setData, post, processing, errors, reset } = useForm<FormData>();
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
-        console.table(data)
-
-
         /**
-         * Fazer Login no Sistema
-         *
+         * TODO: Fazer login logo após
          * post(route('login'), {
-         *     onFinish: () => reset('senha'),
-         * });
+            onFinish: () => reset('senha')
+           });
          *
          */
+
+        toast({
+          title: "Título",
+          description: "Descrição"
+        })
+
+
     };
 
     return (
