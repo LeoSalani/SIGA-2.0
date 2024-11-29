@@ -13,28 +13,37 @@ class Aluno extends Authenticable{
     protected $table = 'tbl_estudante';
 
     protected $fillable = [
-        'Registro Academico',
-        'Nome',
-        'Idade',
-        'Senha',
-        'Email',
-        'RG',
-        'CPF',
-        'IsPcd',
-        'PR',
-        'PP',
-        'PP(Intercambio)',
-        'Endereco_Id',
-        'Curso_Id',
+        'registro_academico',
+        'nome',
+        'idade',
+        'senha',
+        'email',
+        'rg',
+        'cpf',
+        'ispcd',
+        'pr',
+        'pp',
+        'pp(intercambio)',
+        'endereco_id',
+        'curso_id',
+    ];
+
+    protected $attributes = [
+        'nome' => 'Nome',
+        'idade' => 'Idade',
+        'email' => 'Email',
+        // 'Registro_Academico' => 0,
     ];
 
     protected $hidden = [
         'password',
-        'RG',
-        'CPF',
-        'Endereco_Id',
-        'Registro_Academico'
+        'rg',
+        'cpf',
+        'endereco_id',
+        'registro_academico'
     ];
+
+    public $timestamps = false;
 
     public function notas()
     {

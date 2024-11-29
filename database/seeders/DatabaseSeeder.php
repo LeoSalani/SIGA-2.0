@@ -14,14 +14,14 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
 
         DB::table('tbl_estudante')->insert([
             [
                 'Registro_Academico' => 123456,
                 'Nome' => 'Nome aleatório',
                 'Idade' => 20,
-                'Senha' => bcrypt('password123'),
+                'Senha' => 'password123',
                 'Email' => 'qualquercoisa@example.com',
                 'RG' => '123456789',
                 'CPF' => 123456789,
@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
                 'Registro_Academico' => 654321,
                 'Nome' => 'Alguém random',
                 'Idade' => 22,
-                'Senha' => bcrypt('securepass'),
+                'Senha' => 'securepass',
                 'Email' => 'holyemail@example.com',
                 'RG' => '987654321',
                 'CPF' => 987654321,
@@ -47,6 +47,14 @@ class DatabaseSeeder extends Seeder
                 'Endereco_ID' => 2,
                 'Curso_Id' => 2,
             ]
+            ]);
+
+            DB::table('tbl_endereco')->insert([
+                'Logradouro' => 'Rua chata',
+                'Numero' => 697,
+                'CEP' => 158,
+                'Bairro' => 'Osasco',
+                'Cidade_Id' => 2,
             ]);
 
             DB::table('tbl_curso')->insert([

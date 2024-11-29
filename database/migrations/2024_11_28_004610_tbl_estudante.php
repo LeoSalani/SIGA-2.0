@@ -13,7 +13,7 @@ return new class extends Migration
             $table->integer('Registro_Academico');
             $table->string('Nome', 100);
             $table->integer('Idade');
-            $table->string('Senha', 25)->nullable();
+            $table->string('Senha', 100)->nullable();
             $table->string('Email', 256);
             $table->string('RG', 12);
             $table->integer('CPF');

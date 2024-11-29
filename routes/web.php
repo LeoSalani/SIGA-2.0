@@ -15,6 +15,12 @@ Route::get('/', function () {
 
 Route::get('/home', [StudentController::class, 'pegarDadosAluno']);
 
+Route::post('/registrar_aluno', [StudentController::class, 'registrarAlunos']);
+
+Route::get('/csrf_token', function () {
+  return response()->json(['csrf_token' => csrf_token()]);
+});
+
 Route::get(uri: '/aluno/notas', action: function () {
   return Inertia::render('Aluno/Notas');
 })->name(name: "aluno/notas");
