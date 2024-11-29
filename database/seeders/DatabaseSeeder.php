@@ -50,15 +50,24 @@ class DatabaseSeeder extends Seeder
             ]);
 
             DB::table('tbl_endereco')->insert([
-                'Logradouro' => 'Rua chata',
+                [
+                'Logradouro' => 'Rua Dr. Gastão Vidigal',
                 'Numero' => 697,
-                'CEP' => 158,
-                'Bairro' => 'Osasco',
-                'Cidade_Id' => 2,
+                'CEP' => 5314001,
+                'Bairro' => 'Vila Leopoldina',
+                'Cidade_Id' => 1,
+                ],
+                [
+                'Logradouro' => 'Av dos Remédios',
+                'Numero' => 123,
+                'CEP' => 6298970,
+                'Bairro' => 'Vila Santas Edwiges',
+                'Cidade_Id' => 1,
+                ]
             ]);
 
             DB::table('tbl_curso')->insert([
-                'Nome' => 'Joazinho',
+                'Nome' => 'ADS',
                 'QtdSemestres' => 6,
                 'Coordenador_Id' => 1,
                 'Modalidade_Id' => 1
